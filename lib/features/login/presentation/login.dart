@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/core/utils/color_const.dart';
 import 'package:flutter_app/core/utils/string_const.dart';
+import 'package:flutter_app/features/dashboard/presentation/dashboard.dart';
 import 'package:flutter_app/widgets/custom_dropdown.dart';
 import 'package:flutter_app/widgets/custom_elevatedbutton.dart';
 import 'package:flutter_app/widgets/custom_textformfield.dart';
@@ -89,7 +90,13 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
                   child: CustomElevatedButton(
                     backgroundColor: secondaryColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Dashboard()),
+                      );
+                    },
+
                     child: Text(loginStr),
                   ),
                 ),

@@ -22,10 +22,7 @@ class DropDown extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 12,
-          vertical: 14,
-        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       ),
       items: items.map((item) {
         return DropdownMenuItem<String>(value: item, child: Text(item));
