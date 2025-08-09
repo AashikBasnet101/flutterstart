@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/utils/color_const.dart';
 import 'package:flutter_app/features/homepage/presentation/home.dart';
 import 'package:flutter_app/features/profile/presentation/profile.dart';
 import 'package:flutter_app/features/settings/presentation/settings.dart';
+import 'package:flutter_app/features/notification/presentation/notifications.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -11,7 +13,12 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List<Widget> widgetList = [HomePage(), Profile(), Settings()];
+  List<Widget> widgetList = [
+    HomePage(),
+    Profile(),
+    Settings(),
+    Notifications(),
+  ];
   int index = 0;
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
 
-        selectedItemColor: const Color.fromARGB(255, 36, 122, 192),
+        selectedItemColor: primaryColor,
         unselectedItemColor: Colors.black,
 
         onTap: (value) {
@@ -30,10 +37,17 @@ class _DashboardState extends State<Dashboard> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: "Settings",
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: "Notificationss",
           ),
         ],
       ),

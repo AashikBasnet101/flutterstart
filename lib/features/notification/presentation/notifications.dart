@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/core/utils/color_const.dart';
 import 'package:flutter_app/core/utils/string_const.dart';
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class Notifications extends StatelessWidget {
+  const Notifications({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,26 +11,20 @@ class Settings extends StatelessWidget {
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        centerTitle: true,
+        backgroundColor: primaryColor,
+        elevation: 0,
         title: const Text(
-          "Settings",
+          "Notifications",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-
-        backgroundColor: primaryColor,
-
-        foregroundColor: Colors.black,
+        centerTitle: true,
       ),
       body: ListView(
-        children: settingsItems
+        children: notificationItems
             .map(
               (item) => ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 4,
-                ),
                 leading: Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -39,18 +33,16 @@ class Settings extends StatelessWidget {
                 ),
                 title: Text(
                   item['title'],
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                trailing: item['trailing'] != null
-                    ? Text(
-                        item['trailing'],
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
-                        ),
-                      )
-                    : null,
-                onTap: () {},
+                subtitle: Text(
+                  item['subtitle'],
+                  style: const TextStyle(color: Colors.blue),
+                ),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
               ),
             )
             .toList(),
